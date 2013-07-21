@@ -1,0 +1,44 @@
+startup_message off
+defflow auto
+defscrollback 5000
+altscreen on
+autodetach on
+msgwait 3
+
+#change the hardstatus settings to give an window list at the bottom of the
+#screen, with the time and date and with the current window highlighted 
+defutf8 on
+
+### minimal ###
+hardstatus alwayslastline "%{= w}%-w%{= gk} %n %t %{-}%+w %-="
+
+### original ###
+# hardstatus alwayslastline                                        
+# hardstatus string '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %m/%d %c ]%{W}'
+
+startup_message off
+
+term xterm-256color
+
+bind P paste .
+
+#ctrl-page up and page down scroll (xterm)
+bindkey "^[[5;5~" eval "copy" "stuff ^u"
+bindkey -m "^[[5;5~" stuff ^u
+bindkey -m "^[[6;5~" stuff ^d
+
+#ctrl-left and ctrl-right are prev/next
+bindkey "^[[1;5D" prev
+bindkey "^[[1;5C" next
+
+# C key creates new window and prompts for its title
+bind C eval "screen" "title" "stuff ^u"
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+termcapinfo xterm-color "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+# erase background with current bg color
+defbce "on"
