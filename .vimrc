@@ -4,6 +4,11 @@ set expandtab
 
 set nu
 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+
 call pathogen#infect()
 syntax on
 filetype plugin indent on
