@@ -27,7 +27,7 @@ Plugin 'othree/html5.vim'
 Plugin 'jgdavey/vim-railscasts'
 Plugin 'vim-airline/vim-airline'
 Plugin 'godlygeek/tabular'
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 "Plugin 'rking/ag.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'sjl/gundo.vim'
@@ -39,6 +39,12 @@ filetype plugin indent on
 
 set laststatus=2
 nnoremap <F5> :GundoToggle<CR>
+
+" File tree browser
+map \           :NERDTreeToggle<CR>
+"
+" " File tree browser showing current file - pipe (shift-backslash)
+map \|          :NERDTreeFind<CR>
 
 " disable ex mode
 nnoremap Q <nop>
