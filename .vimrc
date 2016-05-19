@@ -4,6 +4,7 @@ set expandtab
 set nu
 set backspace=indent,eol,start
 set nocompatible
+set hlsearch
 
 syntax enable
 
@@ -13,6 +14,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/file-line'
 Plugin 'mhinz/vim-signify'
@@ -28,7 +30,7 @@ Plugin 'jgdavey/vim-railscasts'
 Plugin 'vim-airline/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'rking/ag.vim'
+Plugin 'rking/ag.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'ervandew/supertab'
