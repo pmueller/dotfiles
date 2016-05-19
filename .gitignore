@@ -1,1 +1,8 @@
 /bundle
+.DS_Store
+/.bin
+/.bundle
+/log/*.log
+/tmp
+.ruby-version
+.ruby-gemset
