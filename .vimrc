@@ -51,6 +51,9 @@ map \           :NERDTreeToggle<CR>
 " " File tree browser showing current file - pipe (shift-backslash)
 map \|          :NERDTreeFind<CR>
 
+let mapleader = ","
+map <leader>b :FufBuffer<CR>
+
 " disable ex mode
 nnoremap Q <nop>
 
