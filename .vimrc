@@ -16,6 +16,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-scripts/FuzzyFinder'
 Plugin 'vim-scripts/file-line'
 Plugin 'mhinz/vim-signify'
 Plugin 'tpope/vim-fugitive'
@@ -31,9 +32,11 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdtree'
 Plugin 'rking/ag.vim'
+Bundle 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'ervandew/supertab'
+Plugin 'vim-scripts/L9'
 
 call vundle#end()
 filetype plugin indent on
@@ -54,6 +57,9 @@ nnoremap Q <nop>
 " for vim-cpp-enhanced-highlight plugin...
 " turn on highlighting of class scope
 let g:cpp_class_scope_highlight = 1
+
+" lets gistvim put the gist url into the clipboard with -c
+let g:gist_clip_command = 'pbcopy'
 
 " color stuff
 set t_Co=256
