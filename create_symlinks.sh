@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=( ackrc agignore gemrc gitconfig gitignore irbrc )
+dotfiles=( agignore gemrc gitconfig gitignore irbrc screnrc tmux.conf vimrc )
 source=$1
 
 if [ -z "$source" ]; then
