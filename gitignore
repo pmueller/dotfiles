@@ -5,3 +5,5 @@
 /tmp
 .ruby-version
 .ruby-gemset
+*.swo
+*.swp

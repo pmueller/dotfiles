@@ -1,6 +1,8 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore
+[include]
+  path = .gituserconfig
 [alias]
   ls = show-ref
   st = status
