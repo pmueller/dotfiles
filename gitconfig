@@ -1,0 +1,46 @@
+[core]
+  editor = vim
+  excludesfile = ~/.gitignore
+[alias]
+  ls = show-ref
+  st = status
+  co = checkout
+  ci = commit -s
+  ciff = diff --cached
+  br = branch
+  vis = !gitk --all &
+  llog = log --date=local
+  unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
+  unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
+  w = whatchanged
+  sw = !"git reflog | grep checkout | grep -v "\\^0$" | head -n 1 | cut -d ' ' -f 6 | xargs git checkout"
+[merge]
+  tool = diffmerge
+[diff]
+  tool = diffmerge
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+  trustExitCode = true
+[difftool "diffmerge"]
+  cmd = diffmerge $LOCAL $REMOTE
+[format]
+  pretty = format:"%h %C(yellow)%ci%Creset %Cgreen%an%Creset | %s"
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+[color "branch"]
+  current = green reverse
+  local = green
+  remote = red
+[push]
+  default = current
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+[rebase]
+  stat = true
+[branch "*branch-name*"]
+  rebase = true

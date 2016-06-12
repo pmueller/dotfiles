@@ -1,0 +1,6 @@
+.bundle/
+node_modules/
+bower_components/
+deps/
+tmp/
+log/
