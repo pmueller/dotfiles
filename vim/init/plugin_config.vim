@@ -50,3 +50,10 @@ let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 " ---------
 " Unset 'list' in :Gstatus window (which usually contains tab characters).
 autocmd BufReadPost .git/index set nolist
+
+" ---------
+" ALE
+" ---------
+let g:ale_linters = {
+\   'ruby': ['ruby'],
+\}
