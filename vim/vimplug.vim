@@ -57,6 +57,7 @@ Plug 'leshill/vim-json'
 "Plug 'posva/vim-vue'
 
 Plug 'othree/html5.vim'
+Plug 'alvan/vim-closetag'
 
 Plug 'elixir-lang/vim-elixir'
 
