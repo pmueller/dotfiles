@@ -9,7 +9,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/file-line'
 
 Plug 'scrooloose/nerdtree'
-Plug 'jgdavey/vim-railscasts'
+Plug 'pmueller/vim-railscasts'
 " status line
 Plug 'vim-airline/vim-airline'
 " use sign column to show a diff
