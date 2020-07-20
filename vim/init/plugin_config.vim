@@ -44,7 +44,6 @@ let g:ag_prg="ag --path-to-ignore=~/.agignore --vimgrep"
 " ag will filter, which will respect agignore
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 
-
 " ---------
 " Fugitive
 " ---------
@@ -57,3 +56,14 @@ autocmd BufReadPost .git/index set nolist
 let g:ale_linters = {
 \   'ruby': ['ruby'],
 \}
+
+" ---------
+" Airline
+" ---------
+let g:airline_theme='minimalist'
+function! AirlineInit()
+  let g:airline_section_b = airline#section#create(['branch'])
+  let g:airline_section_y = ''
+  let g:airline_section_z = airline#section#create(['%l%\/%L%{g:airline_symbols.maxlinenr}:%v'])
+endfunction
+autocmd VimEnter * call AirlineInit()

@@ -17,6 +17,7 @@ Plug 'pmueller/vim-railscasts'
 
 " status line
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " use sign column to show a diff
 Plug 'mhinz/vim-signify'
