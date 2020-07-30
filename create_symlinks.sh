@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dotfiles=( agignore gemrc gitconfig gitignore gituserconfig irbrc screenrc tmux.conf vimrc )
+dotfiles=( agignore aliases bash_profile bash_prompt gemrc gitconfig gitignore gituserconfig irbrc screenrc tmux.conf vimrc )
 source="$( cd "$(dirname "$0")" ; pwd -P )"
 
 echo "symlinking ~/.vim/ -> ${source}/vim/"
