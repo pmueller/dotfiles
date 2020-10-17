@@ -45,6 +45,9 @@ imap kj <esc>
 " Remove ex mode shortcut
 nnoremap Q <nop>
 
+" map enter to write in normal mode
+nmap <CR> :w<CR>
+
 " Make Y consistent with D and C
 map Y           y$
 
@@ -189,8 +192,7 @@ set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
 " - Visual
 set showmatch   " Show matching brackets.
 set matchtime=2 " How many tenths of a second to blink
-" Show invisible characters
-set list
+set list        " Show invisible characters
 
 set noicon
 
@@ -200,7 +202,7 @@ set listchars=""
 set listchars=tab:\~\
 " Show > in last col when wrap is off and line is past the screen to the right
 set listchars+=extends:>
-" Show < in last col when wrap is off and line is past the screen to the left
+" and < to the left
 set listchars+=precedes:<
 
 " - Sounds
@@ -278,17 +280,6 @@ if has("autocmd")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Writes the current buffer unless we're the in QuickFix mode.
-function WriteBuffer()
-  " qf is quickfix
-  if &filetype == "qf"
-    execute "normal! \<enter>"
-  else
-    :write
-  endif
-endfunction
-noremap <silent> <enter> :call WriteBuffer()<CR>
 
 " Find current word in command mode
 function! AgGrep()
