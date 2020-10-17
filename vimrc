@@ -12,14 +12,12 @@ Plug 'vim-scripts/file-line'                          " open files to a specific
 Plug 'scrooloose/nerdtree'
 Plug 'pmueller/vim-railscasts'
 Plug 'mhinz/vim-signify'                              " sign column shows diff
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'                             " git wrapper
 Plug 'rking/ag.vim'
 Plug 'mbbill/undotree'
 Plug 'henrik/vim-indexed-search'                      " x of y matches while searching
 Plug 'dense-analysis/ale'                             " syntax checking and other stuff
 "Plug 'scrooloose/syntastic'                           " Use this over ALE if vim version < 8
-Plug 'tpope/vim-repeat'
 Plug 'ntpeters/vim-better-whitespace'                 " highlight extra whitespace
 Plug 'mkitt/tabline.vim'                              " show tab numbers and unsaved indicator
 Plug 'sheerun/vim-polyglot'
