@@ -11,8 +11,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/file-line'                          " open files to a specific line with :<num>
 Plug 'scrooloose/nerdtree'
 Plug 'pmueller/vim-railscasts'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-signify'                              " sign column shows diff
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'                             " git wrapper
@@ -136,13 +134,13 @@ set undofile
 set undodir=~/.vim/.undo
 
 " - UI
-set ruler          " Ruler on
-set number         " Line numbers on
-set laststatus=2   " Always show the statusline
-set cmdheight=1    " Make the command area two lines high
+" file name on left side, current row / max rows : current col on right side
+" LineNr is the highlight group
+set statusline=%#LineNr#\%f%=\ %#LineNr#\ %l\/%L:%c
+set number                " Line numbers on
+set laststatus=2          " Always show the statusline
+set cmdheight=1           " Make the command area two lines high
 set encoding=utf-8
-set noshowmode     " Don't show the mode since Powerline shows it
-set title          " Set the title of the window in the terminal to the file
 if exists('+colorcolumn')
   highlight ColorColumn ctermbg=745
   set colorcolumn=99 " Color the 80th column differently as a wrapping guide.
@@ -317,20 +315,7 @@ let g:ag_prg="ag --path-to-ignore=~/.agignore --vimgrep"
 " ag will filter, which will respect agignore
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 
-" - Fugitive
-" Unset 'list' in :Gstatus window (which usually contains tab characters).
-autocmd BufReadPost .git/index set nolist
-
 " - ALE
 let g:ale_linters = {
 \   'ruby': ['ruby'],
 \}
-
-" - Airline
-let g:airline_theme='minimalist'
-function! AirlineInit()
-  let g:airline_section_b = airline#section#create(['branch'])
-  let g:airline_section_y = ''
-  let g:airline_section_z = airline#section#create(['%l%\/%L%{g:airline_symbols.maxlinenr}:%v'])
-endfunction
-autocmd VimEnter * call AirlineInit()
