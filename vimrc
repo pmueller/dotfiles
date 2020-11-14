@@ -16,108 +16,48 @@ Plug 'tpope/vim-fugitive'                             " git wrapper
 Plug 'rking/ag.vim'
 Plug 'mbbill/undotree'
 Plug 'henrik/vim-indexed-search'                      " x of y matches while searching
-Plug 'dense-analysis/ale'                             " syntax checking and other stuff
-"Plug 'scrooloose/syntastic'                           " Use this over ALE if vim version < 8
+Plug 'dense-analysis/ale'                             " syntax checking and etc, disable vim < 8.0
 Plug 'ntpeters/vim-better-whitespace'                 " highlight extra whitespace
 Plug 'mkitt/tabline.vim'                              " show tab numbers and unsaved indicator
 Plug 'sheerun/vim-polyglot'
 Plug 'alvan/vim-closetag'                             " auto html end tags
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
-Plug 'vim-scripts/rainbow-end'
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " - Keybindings
 let mapleader = ","
-
 command W w
 cabbrev Q q
-
-" more ergonomic mappings for esc
 imap jj <esc>
 imap jk <esc>
-imap kj <esc>
-
-" Remove ex mode shortcut
 nnoremap Q <nop>
-
-" map enter to write in normal mode
-nmap <CR> :w<CR>
-
-" Make Y consistent with D and C
-map Y           y$
-
-" Reload .vimrc
-map <leader>rv  :source ~/.vimrc<CR>
-
-" Auto-indent whole file
-nmap <leader>=  gg=G``
-
-" Jump to a new line in insert mode
-imap <D-CR>     <Esc>o
-imap <S-CR>     <Esc>o
-
-" Fast scrolling
-nnoremap <C-e>  3<C-e>
+nmap <CR> :w<CR>                  " map enter to write in normal mode
+map Y           y$                " Make Y consistent with D and C
+nmap <leader>=  gg=G``            " Auto-indent whole file
+nnoremap <C-e>  3<C-e>            " Fast scrolling
 nnoremap <C-y>  3<C-y>
-
-" File tree browser
-map \           :NERDTreeToggle<CR>
-" File tree browser showing current file
-map \|          :NERDTreeFind<CR>
-
-" Previous/next quickfix file listings (e.g. search results)
-map <M-D-Down>  :cn<CR>
-map <M-D-Up>    :cp<CR>
-map <c-j>       :cn<CR>
+map \     :NERDTreeToggle<CR>
+map \|    :NERDTreeFind<CR>
+map <c-j>       :cn<CR>           " Previous/next quickfix file listings (e.g. search results)
 map <c-k>       :cp<CR>
-
 map <C-p>       :FZF<CR>
-
-" ctags
-map <leader>rt :!ctags -R --languages=ruby --exclude=.git --exclude=log .
-
-" In command-line mode, <C-A> should go to the front of the line, as in bash.
-cmap <C-A> <C-B>
-
-" Copy current file path to system pasteboard
-map <silent> <D-C> :let @* = expand("%")<CR>:echo "Copied: ".expand("%")<CR>
-map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
-
-" Disable middle mouse button, F1
-map <MiddleMouse>   <Nop>
+cmap <C-A> <C-B>                  " In command mode, <C-A> goes to the front of the line
+map  <MiddleMouse>  <Nop>         " Disable middle mouse button, F1
 imap <MiddleMouse>  <Nop>
-map <F1>            <Nop>
+map  <F1>           <Nop>
 imap <F1>           <Nop>
-
-" grep current word
-map <leader>a :call AgGrep()<CR>
-
-" Undotree
-map <leader>u :UndotreeToggle<CR>
-
+map <leader>a :call AgGrep()<CR>  " grep current word
+map <leader>u :UndotreeToggle<CR> " Undotree
+nnoremap <C-h> gT                 " tab movement
+nnoremap <C-l> gt
+" Copy current file path to system pasteboard
+map <leader>C :let @* = expand("%").":".line(".")<CR>:echo "Copied: ".expand("%").":".line(".")<CR>
 " Format a json file with Python's built in json.tool.
 " from https://github.com/spf13/spf13-vim/blob/3.0/.vimrc#L390
 nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
-
-" tab movement
-nnoremap <C-h> gT
-nnoremap <C-l> gt
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
-noremap <leader>0 :tablast<cr>
-
-" turn on/off rainbowend
-nnoremap <silent> <leader>b :call ToggleRainbow()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -142,10 +82,6 @@ set number                " Line numbers on
 set laststatus=2          " Always show the statusline
 set cmdheight=1           " Make the command area two lines high
 set encoding=utf-8
-if exists('+colorcolumn')
-  highlight ColorColumn ctermbg=745
-  set colorcolumn=99 " Color the 80th column differently as a wrapping guide.
-endif
 " Disable tooltips for hovering keywords in Vim
 if exists('+ballooneval')
   " This doesn't seem to stop tooltips for Ruby files
@@ -162,8 +98,6 @@ set history=768        " Number of things to remember in history.
 set cf                 " Enable error files & error jumping.
 set autowrite          " Writes on make/shell commands
 set timeoutlen=650     " Time to wait for a command (after leader for example).
-set nofoldenable       " Disable folding entirely.
-set foldlevelstart=99  " I really don't like folds.
 set formatoptions=crql
 set iskeyword+=\$,-    " Add extra characters that are valid parts of variables
 set nostartofline      " Don't go to the start of the line after some commands
@@ -185,7 +119,7 @@ set smartcase  " Non-case sensitive search
 set incsearch
 set hlsearch
 set wildignore+=*.o,*.obj,*.exe,*.so,*.dll,*.pyc,.svn,.hg,.bzr,.git,
-  \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc
+      \.sass-cache,*.class,*.scssc,*.cssc,sprockets%*,*.lessc
 
 " - Visual
 set showmatch   " Show matching brackets.
@@ -221,10 +155,6 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 set complete=.,w,b,u,U
 
 " - Language specific
-" Consider question/exclamation marks to be part of a Vim word.
-autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
-autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
-
 " - Options inspired by Pivotal's vim config
 set guioptions-=T               " Remove GUI toolbar
 set guioptions-=e               " Use text tab bar, not GUI
@@ -247,8 +177,6 @@ set hidden                      " Allow hidden, unsaved buffers
 set splitright                  " Add new windows towards the right
 set splitbelow                  " ... and bottom
 set cursorline                  " Highlight current line
-
-set laststatus=2                " Always show statusline
 
 set hls                         " search with highlights by default
 " Press Space to turn off highlighting and clear any message already
@@ -279,6 +207,12 @@ if has("autocmd")
   " Earlier in the rc we mapped <CR> to write, which breaks the 'jump to
   " error' behavior in quickfix. So remap <CR> to <CR> in quickfix
   autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+  " Consider question/exclamation marks to be part of a Vim word.
+  " Useful for ruby
+  autocmd FileType ruby set iskeyword=@,48-57,_,?,!,192-255
+  autocmd FileType scss set iskeyword=@,48-57,_,-,?,!,192-255
+
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -292,13 +226,7 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" - NERDTree
-let g:NERDTreeShowBookmarks=0
-let g:NERDTreeChDirMode=2 " Change the NERDTree directory to the root node
-let g:NERDTreeMinimalUI=1
-
-" - vim-ruby
-" Turn on syntax highlighting for ruby operators (==, ||, &&, etc)
+" - vim-ruby: Turn on syntax highlighting for ruby operators (==, ||, &&, etc)
 let ruby_operators=1
 
 " - ag
@@ -308,7 +236,7 @@ let g:ag_prg="ag --path-to-ignore=~/.agignore --vimgrep"
 " ag will filter, which will respect agignore
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 
-" - ALE
+" - ALE: globally disable certain linters
 let g:ale_linters = {
-\   'ruby': ['ruby'],
-\}
+      \   'ruby': ['ruby'],
+      \}
