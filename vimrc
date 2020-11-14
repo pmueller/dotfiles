@@ -275,6 +275,10 @@ if has("autocmd")
 
   " Autowrite buffers when focus is lost"
   autocmd BufLeave,FocusLost * silent! wall
+
+  " Earlier in the rc we mapped <CR> to write, which breaks the 'jump to
+  " error' behavior in quickfix. So remap <CR> to <CR> in quickfix
+  autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
