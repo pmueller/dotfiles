@@ -6,7 +6,7 @@ source ~/.vim/autoload/plug.vim
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'                             " sensible defaults
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/file-line'                          " open files to a specific line with :<num>
 Plug 'scrooloose/nerdtree'
