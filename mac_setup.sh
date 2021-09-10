@@ -5,6 +5,7 @@ brew cask install rectangle
 brew install rectangle
 brew install iterm2
 brew install tmux
+brew install lulu
 
 # disable iterm2 only resizing to character width increments
 defaults write com.googlecode.iterm2 DisableWindowSizeSnap -integer 1
