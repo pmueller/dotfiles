@@ -12,3 +12,7 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+alias lvh="bundle exec rails s -p 3000 -b lvh.me"
+alias be="bundle exec"
+export EDITOR=vim
