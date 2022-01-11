@@ -141,6 +141,10 @@ set listchars+=precedes:<
 set noerrorbells
 set novisualbell
 set t_vb=
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " - File Browsing
 let g:netrw_banner=0        " disable annoying banner
