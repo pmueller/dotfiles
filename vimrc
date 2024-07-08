@@ -9,7 +9,7 @@ Plug 'tpope/vim-sensible'                             " sensible defaults
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/file-line'                          " open files to a specific line with :<num>
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'pmueller/vim-railscasts'
 Plug 'mhinz/vim-signify'                              " sign column shows diff
 Plug 'tpope/vim-fugitive'                             " git wrapper
