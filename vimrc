@@ -244,3 +244,5 @@ let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 let g:ale_linters = {
       \   'ruby': ['ruby'],
       \}
+" don't allow inline virtual warnings/errors
+let g:ale_virtualtext_cursor = 0
